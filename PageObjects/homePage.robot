@@ -11,12 +11,15 @@ Entao o sistema exibira a mensagem de sucesso do Login
 
 
 Dado que o usuário clique em Adicionar contas
-    click        ${btnContas}
-    clickText    ${optionContas}    Adicionar
+    click         ${btnContas}
+    clickText     ${optionContas}    Adicionar
     Capture Page Screenshot
 
 Dado que o usuário clique em Listar contas
-    click        ${btnContas}
+    click         ${btnContas}
     clickIndex    ${optionContas}    1
     Capture Page Screenshot
 
+Dado que o usuário clique em Criar Movimentação
+    click         ${btnMovimentacao}
+    Capture Page Screenshot

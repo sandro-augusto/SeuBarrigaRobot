@@ -35,4 +35,5 @@ clear
     waitElement                      ${element}        10s
     Clear Element Text               ${element}    
 
-    
+pressEnter
+    Press Key       None    \13 
