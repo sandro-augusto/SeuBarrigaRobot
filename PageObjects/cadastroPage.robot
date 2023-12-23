@@ -1,5 +1,4 @@
 *** Settings ***
-Library     SeleniumLibrary
 Library     FakerLibrary
 Resource    ../Resource/Actions.robot
 Resource    ../Elements/cadastroElements.robot
@@ -9,8 +8,9 @@ Dado que o usuário clique em Novo Cadastro
     Wait Until Element Is Visible    ${fieldEmail}
     Capture Page Screenshot
     ClickIndex                       ${btnNovoUsuario}    1
-                                     ${urlAtual}    Get Location
-    Should Be Equal As Strings       ${urlAtual}    ${URL_cadastro}
+                                     ${urlAtual}          Get Location
+    Should Be Equal As Strings       ${urlAtual}          ${URL_cadastro}
+    Capture Page Screenshot
     Wait Until Element Is Visible    ${fieldNome}
     
 
@@ -18,7 +18,7 @@ Quando preencher os dados para o cadastro
     [Arguments]    ${nome}    ${email}    ${senha}
     ${FakeNome}     FakerLibrary.Name
     ${FakeEmail}    FakerLibrary.Email
-    ${compSenha}    FakerLibrary.Numerify    text=##
+    ${compSenha}    FakerLibrary.Numerify      text=##
     ${FakeSenha}=   Catenate     Seubarriga    ${compSenha}
     
     Run Keyword If    '${nome}' != 'None'     Input Text    ${fieldNome}     ${FakeNome}
@@ -27,10 +27,9 @@ Quando preencher os dados para o cadastro
     Capture Page Screenshot
     Click Element                                           ${btnCadastrar}
 
-Entao o sistema exibira a mensagem 
+Então o sistema exibira a mensagem 
     [Arguments]                   ${message}
-    ${text}    Get Text           ${validaMessage}
-    waitElement                   ${validaMessage}    10
+    ${text}       getMessage      ${validaMessage}
     Should Be Equal As Strings    ${text}    ${message}
 
 

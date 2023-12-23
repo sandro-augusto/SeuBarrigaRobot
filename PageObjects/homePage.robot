@@ -4,9 +4,9 @@ Resource    ../Resource/Actions.robot
 Resource    ../Elements/homeElements.robot
 
 *** Keywords ***
-Entao o sistema exibira a mensagem de sucesso do Login
+Então o sistema exibira a mensagem de sucesso do Login
     [Arguments]    ${message}
-    ${Text}    Get Text    ${validaMessage}
+    ${Text}    getMessage         ${validaMessage}
     Should Be Equal As Strings    ${Text}    ${message}
 
 
@@ -17,9 +17,13 @@ Dado que o usuário clique em Adicionar contas
 
 Dado que o usuário clique em Listar contas
     click         ${btnContas}
-    clickIndex    ${optionContas}    1
+    clickIndex    ${optionContas}             1
     Capture Page Screenshot
 
 Dado que o usuário clique em Criar Movimentação
-    click         ${btnMovimentacao}
+    clickIndex    ${btnMovimentacaoResumo}    2
+    Capture Page Screenshot
+
+Dado que o usuario clique na opcao Resumo Mensal 
+    clickIndex    ${btnMovimentacaoResumo}    3
     Capture Page Screenshot
