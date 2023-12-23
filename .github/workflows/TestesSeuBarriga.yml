@@ -20,17 +20,14 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install -r Resource/requirements.txt
-        
+        pip install setuptools
+        pip install robotframework==6.1.1
+        pip install robotframework-seleniumlibrary==6.2.0
+        pip install robotframework-faker        
   
     - name: Run Robot Framework Tests
       run: |
-        chromedriver --headless --disable-gpu --remote-debugging-port=9222 &
           robot -d Results Features/
-        services:
-          chrome:
-            image: selenium/standalone-chrome:latest
-            options: --shm-size=2g
 
     - name: Upload Test Report
       uses: actions/upload-artifact@v2
