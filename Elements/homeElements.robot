@@ -1,6 +1,7 @@
 *** Variables ***
 ${URL}                       https://seubarriga.wcaquino.me/login
 ${Browser}                   chrome
+${OPTIONS}                   --headless
 ${validaMessage}             css:.alert
 ${btnContas}                 css:.dropdown > a
 ${optionContas}              css:.dropdown-menu > li
