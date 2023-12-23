@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: robot-reports
-        path: Results/report.html
+        path: /home/runner/work/SeuBarrigaRobot/SeuBarrigaRobot/Results/report.html
 
   deploy:
     runs-on: ubuntu-latest
