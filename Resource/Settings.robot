@@ -6,7 +6,7 @@ Resource    ../Elements/homeElements.robot
 
 *** Keywords ***
 Start Automation
-    Open Browser    ${URL}    ${Browser}    ${OPTIONS}
+    Open Browser    ${URL}    ${Browser}
     Maximize Browser Window
     # Set Selenium Speed    0.5
     
