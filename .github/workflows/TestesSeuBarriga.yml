@@ -26,7 +26,7 @@ jobs:
         pip install robotframework-faker        
   
     - name: Run Robot Framework Tests
-      run: robot -d Results Features/ --exitonfailure
+      run: robot -d Results Features/
         
     - name: Upload Reports
       if: ${{ always() }}
