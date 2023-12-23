@@ -1,8 +1,9 @@
 *** Variables ***
-${validaMessage}       css:.alert
-${btnContas}           css:.dropdown > a
-${optionContas}        css:.dropdown-menu > li
-${listarContas}        css:.active
-${btnMovimentacao}     a[href='/movimentacao']
-${btnResumoMensal}     a[href='/extrato']
+${URL}                       https://seubarriga.wcaquino.me/login
+${Browser}                   chrome
+${validaMessage}             css:.alert
+${btnContas}                 css:.dropdown > a
+${optionContas}              css:.dropdown-menu > li
+${listarContas}              css:.active
+${btnMovimentacaoResumo}     css:.nav > li
 ${FakeNome}

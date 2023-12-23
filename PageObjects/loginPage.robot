@@ -3,6 +3,7 @@ Library     SeleniumLibrary
 Resource    ../Resource/Actions.robot
 Resource    ../Elements/loginElements.robot
 
+
 *** Keywords ***
 Dado que o usuario informe os dados para o Login
     [Arguments]    ${email}    ${senha}
@@ -13,10 +14,8 @@ Dado que o usuario informe os dados para o Login
 Quando o usuario clicar no botão Entrar
     Click    ${btnEntrar}
 
-Entao o sistema exibira a mensagem de erro
+Então o sistema exibira a mensagem de erro
     [Arguments]    ${message}
-    ${Text}    Get Text    ${validaMessage}
+    ${Text}        getMessage     ${validaMessage}
     Should Be Equal As Strings    ${Text}    ${message}
-
-    
 

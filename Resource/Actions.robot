@@ -22,8 +22,22 @@ click
 clickText
     [Arguments]                      ${element}        ${text}
     waitElement                      ${element}        10s
-    ${message}                       Get Text          ${element}
-    Click Element                    ${element}        
+    ${text}                          Get Text          ${element}
+    Click Element                    ${element}     
+
+getMessage
+    [Arguments]                      ${element}        
+    waitElement                      ${element}        10s
+    ${text}=                         Get Text          ${element}
+    [Return]                         ${text} 
+
+getTextIndex
+    [Arguments]                      ${element}        ${index}
+    waitElement                      ${element}        10s
+    ${elementos}=                    Get WebElements   ${element}
+    ${elemento}=                     Set Variable      ${elementos}[${index}]
+    ${text}=                         Get Text          ${elemento}
+    [Return]                         ${text}
 
 set
     [Arguments]                      ${element}        ${text}
@@ -35,5 +49,3 @@ clear
     waitElement                      ${element}        10s
     Clear Element Text               ${element}    
 
-pressEnter
-    Press Key       None    \13 
