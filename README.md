@@ -2,8 +2,11 @@
 ## PRÉ-REQUISITOS
 Requisitos de software e hardware necessários para executar este projeto de automação
 
+
 * Python 3.11 ou superior
 * Robot Framework 6.1 ou superior
+* Biblioteca setuptools
+* Biblioteca Faker 
 * Vs Code IDE
 * Extensions Vs Code
     * Robot Framework Language
