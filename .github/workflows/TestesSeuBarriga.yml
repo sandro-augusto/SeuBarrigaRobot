@@ -27,7 +27,7 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        chromedriver --no-sandbox --disable-gpu --remote-debugging-port=9222 &
+        chromedriver --headless --disable-gpu --remote-debugging-port=9222 &
           robot -d Results Features/
 
     - name: Upload Test Report
