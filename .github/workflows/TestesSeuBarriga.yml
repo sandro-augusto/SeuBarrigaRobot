@@ -27,7 +27,8 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        robot -d Results Features/
+        chromedriver --no-sandbox --disable-gpu --remote-debugging-port=9222 &
+          robot -d Results Features/
 
     - name: Upload Test Report
       uses: actions/upload-artifact@v2
