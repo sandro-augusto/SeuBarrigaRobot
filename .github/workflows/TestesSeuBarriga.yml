@@ -26,14 +26,13 @@ jobs:
         pip install robotframework-faker        
   
     - name: Run Robot Framework Tests
-      run: |
-          robot -d Results Features/
+      run: robot -d Results Features/
 
     - name: Upload Test Report
       uses: actions/upload-artifact@v2
       with:
         name: robot-reports
-        path: /home/runner/work/SeuBarrigaRobot/SeuBarrigaRobot/Results/report.html
+        path: ../Results/report.html
 
   deploy:
     runs-on: ubuntu-latest
