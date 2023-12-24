@@ -7,7 +7,7 @@ Test Teardown    Stop Automation
 *** Test Cases ***
 Consulta das Movimentações do Resumo Mensal
     Dado que o usuario clique na opcao Resumo Mensal 
-    Quando o usuario consultar as movimentações   9
+    Quando o usuario consultar as movimentações   8
     Então o sistema exibira as movimentações pesquisadas
 
 Consulta de um mês sem Movimentações

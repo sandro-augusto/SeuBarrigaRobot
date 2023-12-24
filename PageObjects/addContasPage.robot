@@ -9,7 +9,8 @@ Quando preencher o campo Nome
     [Arguments]    ${conta}
     ${urlAtual}    Get Location
     Should Be Equal As Strings    ${urlAtual}    ${url}
-    ${FakeNome}    FakerLibrary.First Name
+    ${CompNome}    FakerLibrary.First Name
+    ${FakeNome}    Catenate    Teste     ${CompNome}
     Run Keyword If    '${conta}' != 'Null'    set    ${fieldNome}    ${FakeNome}
     Capture Page Screenshot 
     click    ${btnSalvar}
