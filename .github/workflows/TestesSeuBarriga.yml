@@ -35,7 +35,7 @@ jobs:
     - name: Upload arquivos
       uses: actions/upload-pages-artifact@v1
       with:
-          path: 'target/cucumber/report-builder'
+          path: 'Results/report.html'
 
     - name: Deploy arquivos no GitHub Pages
       id: deployment
