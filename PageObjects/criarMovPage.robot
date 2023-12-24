@@ -22,7 +22,8 @@ Quando preencher os dados
     Run Keyword If    '${interessado}' != 'Null'       set           ${fieldInteressado}    ${FakerInteressado}
     Run Keyword If    '${valor}' != 'Null'             set           ${fieldValor}          ${FakerValor}
     click              ${fieldConta}
-    clickIndex         ${optionConta}    0
+    clickText          ${optionConta}                  Automation teste
+    # clickIndex         ${optionConta}    0
     Run Keyword If    '${situacao}' == 'Pago'          click         ${statusPago}
     Run Keyword If    '${situacao}' == 'Pendente'      click         ${statusPendente}
     Capture Page Screenshot

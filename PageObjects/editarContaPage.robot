@@ -7,7 +7,8 @@ Resource    ../Elements/editarContasElements.robot
 *** Keywords ***
 Quando Editar o campo Nome
     [Arguments]       ${conta}
-    ${FakeNome}       FakerLibrary.Name
+    ${CompEditar}     FakerLibrary.Name
+    ${FakeNome}       Catenate                Editar                 ${CompEditar}
     ${urlAtual}       Get Location
     Should Contain    ${urlAtual}             ${urlEditarConta}
     clear             ${fieldNome}
