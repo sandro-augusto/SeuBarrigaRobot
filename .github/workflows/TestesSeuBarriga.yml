@@ -27,11 +27,24 @@ jobs:
     - name: Run Robot Framework Tests
       run: robot -d Results Features/ || true
         
-    - name: Step 4 Archive Production artifacts
+    - name: Upload Reports
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v3
+      with:
+          name: report
+          path: ./Results/report.html
+
+    - name: Archive Production artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
       with:
         name: report
         path: ./Results/report.html
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.DEPLOY_KEY }}
+        publish_dir: ./docs
 
     
