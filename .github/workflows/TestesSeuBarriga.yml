@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -27,7 +28,7 @@ jobs:
     - name: Run Robot Framework Tests
       run: robot -d Results Features/ || true
         
-   - name: Step 4 Archive Production artifacts
+    - name: Step 4 Archive Production artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
       with:
