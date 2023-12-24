@@ -25,24 +25,13 @@ jobs:
         pip install robotframework-faker        
   
     - name: Run Robot Framework Tests
-      run: |
-        export PIPELINE=github_actions
-        robot -d Results Features/ || true
+      run: robot -d Results Features/ || true
         
-    - name: Setup GitHub Pages
-      uses: actions/configure-pages@v2
+    - name: Step 4 Archive Production artifacts
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        enablement: true
-
-    - name: Upload arquivos
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        publish_dir: ./docs
-
-    - name: Deploy arquivos no GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+        name: report
+        path: ./docs/index.html
 
     
