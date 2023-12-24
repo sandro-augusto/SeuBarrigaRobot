@@ -35,9 +35,7 @@ jobs:
           name: report
           path: ./Results/report.html
 
-    - name: Step 5 Deploy do Report.html
+    - name: Print Report URL
       if: ${{ always() }}
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./docs
+      run: |
+        echo "Report URL: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/-/jobs/$GITHUB_RUN_ID/artifacts/report/report.html"
