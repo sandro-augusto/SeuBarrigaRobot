@@ -1,4 +1,4 @@
-name: Robot Framework Test and Deploy
+name: Seu Barriga ROBOT - SELENIUM
 
 on:
   push:
@@ -35,14 +35,14 @@ jobs:
           name: report
           path: ./Results/report.html
 
-    - name: Step 4 Archive Production artifacts
+    - name: Archive Production artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
       with:
         name: report
-        path: ./docs/index.html
-
-    - name: Step 5 Deploy do Report.html
+        path: ./Results/report.html
+        
+    - name: Deploy do Report.html
       if: ${{ always() }}
       uses: peaceiris/actions-gh-pages@v3
       with:
