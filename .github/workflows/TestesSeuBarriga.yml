@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-      
-env:
-  NODE_OPTIONS: "--disallow-snapshot-exec"
 
 jobs:
   test:
@@ -46,4 +43,4 @@ jobs:
     - name: Print Report URL
       if: ${{ always() }}
       run: |
-        echo "Report URL: ${{ steps.download.outputs.artifact_url }}"
+        echo "Report URL: ./Results/report.html"
