@@ -35,7 +35,12 @@ jobs:
           name: report
           path: ./Results/report.html
 
+    - name: Get Artifact URL
+      if: ${{ always() }}
+      id: download
+      run: echo "::set-output name=artifact_url::$(echo ${{ github.run_url }}/artifacts/report/report.html)"
+
     - name: Print Report URL
       if: ${{ always() }}
       run: |
-        echo "Report URL: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/-/jobs/$GITHUB_RUN_ID/./Results/report.html"
+        echo "Report URL: ${{ steps.download.outputs.artifact_url }}"
