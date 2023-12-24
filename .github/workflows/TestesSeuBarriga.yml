@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+      
+env:
+  NODE_OPTIONS: "--disallow-snapshot-exec"
 
 jobs:
   test:
@@ -11,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2.7.0
+      uses: actions/checkout@v2
 
     - name: Setup Python
-      uses: actions/setup-python@v2.6.2
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
 
