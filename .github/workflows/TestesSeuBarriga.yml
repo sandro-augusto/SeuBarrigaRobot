@@ -35,7 +35,7 @@ jobs:
     - name: Upload arquivos
       uses: actions/upload-pages-artifact@v1
       with:
-          path: 'Results/report.html'
+          path: '/home/runner/work/SeuBarrigaRobot/SeuBarrigaRobot/Results/report.html'
 
     - name: Deploy arquivos no GitHub Pages
       id: deployment
