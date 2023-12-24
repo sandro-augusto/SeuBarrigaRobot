@@ -27,26 +27,18 @@ jobs:
     - name: Run Robot Framework Tests
       run: |
         export PIPELINE=github_actions
-        robot --xunit Results/report.xml -d Results Features/ || true
+        robot -d Results Features/ || true
         
-    - name: Upload Reports
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v3
-      with:
-          name: report
-          path: ./Results/report.html
+    - name: Setup GitHub Pages
+      uses: actions/configure-pages@v3
 
-    - name: Archive Production artifacts
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v3
+    - name: Upload arquivos
+      uses: actions/upload-pages-artifact@v1
       with:
-        name: report
-        path: ./Results/report.html
-        
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        publish_dir: ./docs
+          path: 'target/cucumber/report-builder'
+
+    - name: Deploy arquivos no GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
 
     
