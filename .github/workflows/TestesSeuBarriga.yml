@@ -35,12 +35,18 @@ jobs:
           name: report
           path: ./Results/report.html
 
-    - name: Get Artifact URL
+    - name: Step 4 Archive Production artifacts
       if: ${{ always() }}
-      id: download
-      run: echo "::set-output name=artifact_url::$(echo ${{ github.run_url }}/artifacts/report/report.html)"
+      uses: actions/upload-artifact@v3
+      with:
+        name: report
+        path: ./docs/index.html
 
-    - name: Print Report URL
+    - name: Step 5 Deploy do Report.html
       if: ${{ always() }}
-      run: |
-        echo "Report URL: ./Results/report.html"
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./docs
+
+    
