@@ -5,7 +5,7 @@ Library    SeleniumLibrary
 *** Keywords ***
 waitElement
     [Arguments]                      ${elements}       ${time}
-    Wait Until Element Is Enabled    ${elements}       ${time}
+    Wait Until Element Is Visible    ${elements}       ${time}
 
 clickIndex
     [Arguments]                      ${element}        ${index}
