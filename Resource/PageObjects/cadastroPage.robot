@@ -1,9 +1,8 @@
 *** Settings ***
-Library     FakerLibrary
-Resource    ../Resource/Actions.robot
-Resource    ../Elements/cadastroElements.robot
+Resource    ../Main.robot
 
 *** Keywords ***
+
 Dado que o usuário clique em Novo Cadastro
     Wait Until Element Is Visible    ${fieldEmail}
     Capture Page Screenshot
@@ -16,14 +15,10 @@ Dado que o usuário clique em Novo Cadastro
 
 Quando preencher os dados para o cadastro
     [Arguments]    ${nome}    ${email}    ${senha}
-    ${FakeNome}     FakerLibrary.Name
-    ${FakeEmail}    FakerLibrary.Email
-    ${compSenha}    FakerLibrary.Numerify      text=##
-    ${FakeSenha}=   Catenate     Seubarriga    ${compSenha}
-    
-    Run Keyword If    '${nome}' != 'None'     Input Text    ${fieldNome}     ${FakeNome}
-    Run Keyword If    '${email}' != 'None'    Input Text    ${fieldEmail}    ${FakeEmail}
-    Run Keyword If    '${senha}' != 'None'    Input Text    ${fieldSenha}    ${FakeSenha}
+    Fakers
+    Run Keyword If    '${nome}' != 'None'     Input Text    ${fieldNome}     ${nome}
+    Run Keyword If    '${email}' != 'None'    Input Text    ${fieldEmail}    ${email}
+    Run Keyword If    '${senha}' != 'None'    Input Text    ${fieldSenha}    ${senha}
     Capture Page Screenshot
     Click Element                                           ${btnCadastrar}
 

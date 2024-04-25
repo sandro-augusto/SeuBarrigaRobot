@@ -1,11 +1,5 @@
 *** Settings ***
-Library          SeleniumLibrary
-Library          FakerLibrary    locale=pt_BR
-Resource         ../PageObjects/addContasPage.robot
-Resource         ../PageObjects/listarContasPage.robot
-Resource         ../Resource/Settings.robot
-Resource         ../PageObjects/editarContaPage.robot
-Resource         ../Elements/homeElements.robot
+Resource         ../Resource/Main.robot
 Test Setup       Start Automation Login
 Test Teardown    Stop Automation
 
