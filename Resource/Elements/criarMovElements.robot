@@ -14,8 +14,3 @@ ${statusPendente}     id:status_pendente
 ${btnSalvar}          css:.btn
 ${validaMessage}      css:.alert
 ${validaMessage1}     css:.alert li
-${FakerDataMov}
-${FakerDataPag}
-${FakerDescricao}
-${FakerInteressado}
-${FakerValor}

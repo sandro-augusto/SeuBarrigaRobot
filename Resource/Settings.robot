@@ -1,12 +1,10 @@
 *** Settings ***
-Library     SeleniumLibrary
-Resource    ../PageObjects/loginPage.robot
-Resource    ../PageObjects/homePage.robot
-Resource    ../Elements/homeElements.robot
+Resource    ./Main.robot
+
 
 *** Keywords ***
 Start Automation
-    Open Browser    ${URL}    ${Browser}
+    Open Browser    ${URL}    ${HeadLess}
     Maximize Browser Window
     # Set Selenium Speed    0.5
     

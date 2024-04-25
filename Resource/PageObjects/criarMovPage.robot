@@ -1,25 +1,19 @@
 *** Settings ***
-Library     SeleniumLibrary
-Library     FakerLibrary
-Resource    ../Resource/Actions.robot
-Resource    ../Elements/criarMovElements.robot
+Resource    ../Main.robot
 
 
 *** Keywords ***
 Quando preencher os dados
     [Arguments]    ${tipomov}    ${dataMov}    ${dataPag}
     ...    ${descricao}    ${interessado}    ${valor}    ${situacao}
-    
-    ${FakerDescricao}        FakerLibrary.Sentence
-    ${FakerInteressado}      FakerLibrary.Name
-    ${FakerValor}            FakerLibrary.Numerify    ###
+    Fakers
     click              ${tipo}
     Run Keyword If    '${tipomov}' == 'Receita'        clickIndex    ${tiposMovimento}             0
     Run Keyword If    '${tipomov}' == 'Despesa'        clickIndex    ${tiposMovimento}             1
     Run Keyword If    '${dataMov}' != 'Null'           set           ${fieldDataMov}        ${dataMov}
     Run Keyword If    '${dataPag}' != 'Null'           set           ${fieldDAtaPag}        ${dataPag}
     Run Keyword If    '${descricao}' != 'Null'         set           ${fieldDescricao}      ${FakerDescricao}
-    Run Keyword If    '${interessado}' != 'Null'       set           ${fieldInteressado}    ${FakerInteressado}
+    Run Keyword If    '${interessado}' != 'Null'       set           ${fieldInteressado}    ${FakeNome}
     Run Keyword If    '${valor}' != 'Null'             set           ${fieldValor}          ${FakerValor}
     click              ${fieldConta}
     clickText          ${optionConta}                  Automation teste
@@ -30,7 +24,7 @@ Quando preencher os dados
 
 Então o sistema exibirar a mensagem 
     [Arguments]    ${message}
-    ${text}        getMessage        ${validaMessage}
+    ${text}        getMessage     ${validaMessage}
     Should Be Equal As Strings    ${text}    ${message}
 
 Então o sistema exibirar as mensagens 
