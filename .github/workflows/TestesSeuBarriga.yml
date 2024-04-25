@@ -26,13 +26,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install robotframework-seleniumlibrary
-          pip install robotframework-faker
           pip install setuptools
+          pip install robotframework==6.1.1
+          pip install robotframework-seleniumlibrary==6.2.0
+          pip install robotframework-faker 
 
       - name: Run Test
         run: |
-          robot --name "Web Tests" --outputdir results suites
+          robot Features --outputdir results suites
 
       - name: Test Report
         uses: actions/upload-artifact@v4
