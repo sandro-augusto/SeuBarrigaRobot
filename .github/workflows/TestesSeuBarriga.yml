@@ -1,31 +1,105 @@
-name: SEU BARRIGA /  ROBOT - SELENIUM
+name: Robot Framework CI
 
 on:
   push:
-    branches:
-      - main
-      
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
-  test:
+  test_web:
+    name: Web Tests
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '12'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-    - name: Install Dependencies
-      run: |
-        pip install setuptools
-        pip install robotframework==6.1.1
-        pip install robotframework-seleniumlibrary==6.2.0
-        pip install robotframework-faker        
-  
-    - name: Run Robot Framework Tests
-      run: robot -d Results Features/ || true
-        
-    
+      - name: Install dependencies
+        run: |
+          pip install robotframework-seleniumlibrary
+          pip install robotframework-faker
+          pip install setuptools
+
+      - name: Run Test
+        run: |
+          robot --name "Web Tests" --outputdir results suites
+
+      - name: Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robot-framework-report-web
+          path: results/
+
+  merge:
+    name: Merge Reports
+    runs-on: ubuntu-latest
+    needs:
+      - test_web
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          echo Instalação das dependências do Projeto
+          pip install robotframework
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with: 
+          path: results/
+
+      - name: Merge Reports
+        run: |
+          rebot --merge results/robot-framework-report-web/output.xml
+          ls -a
+
+      - name: Upload Merge Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robot-framework-report
+          path: ./*.html
+
+  deploy:
+    name: Deploy GitHub Pages 🌐
+    runs-on: ubuntu-latest
+    needs: 
+      - merge
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: https://marilliadantas.github.io/teste-funcional-robot/report.html
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with: 
+          name: robot-framework-report
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
