@@ -33,8 +33,7 @@ jobs:
 
       - name: Run Test
         run: |
-          robot --name "Web Tests" --outputdir results suites
-          # robot -d results Features/ || true
+          robot -d results Features/ || true
 
       - name: Test Report
         uses: actions/upload-artifact@v4
