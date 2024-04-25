@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Test
         run: |
-          robot -d Results Features/ || true
+          robot -d results Features/ || true
 
       - name: Test Report
         uses: actions/upload-artifact@v4
