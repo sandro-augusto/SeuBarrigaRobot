@@ -86,7 +86,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://marilliadantas.github.io/teste-funcional-robot/report.html
+      url: https://github.com/sandro-augusto/SeuBarrigaRobot/report.html
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
