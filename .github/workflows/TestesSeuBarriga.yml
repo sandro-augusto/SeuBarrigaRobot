@@ -1,4 +1,4 @@
-name: Robot Framework CI
+name: Robot Framework CI - Seu Barriga
 
 on:
   push:
@@ -18,11 +18,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '12'
 
       - name: Install dependencies
         run: |
