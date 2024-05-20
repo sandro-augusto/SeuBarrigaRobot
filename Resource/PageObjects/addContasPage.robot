@@ -8,9 +8,9 @@ Quando preencher o campo Nome
     Should Be Equal As Strings    ${urlAtual}           ${urlAddContas}
     ${CompNome}                   FakerLibrary.First Name
     ${FakeNome}                   Catenate    Teste     ${CompNome}
-    Run Keyword If    '${conta}' != 'Null'    set       ${fieldNome}    ${FakeNome}
+    Run Keyword If    '${conta}' != 'Null'    set       ${fieldNomeContas}    ${FakeNome}
     Capture Page Screenshot 
-    click                         ${btnSalvar}
+    click                         ${btnSalvarContas}
 
 
 

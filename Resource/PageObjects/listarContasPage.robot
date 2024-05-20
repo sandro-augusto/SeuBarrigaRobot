@@ -4,7 +4,7 @@ Resource    ../Main.robot
 *** Keywords ***
 Então sera visualizado a mensagem
     [Arguments]                   ${message}
-    ${text}                       getMessage            ${validaMessage}
+    ${text}                       getMessage            ${validaMessageContas}
     Should Be Equal As Strings    ${text}               ${message}
 
 Quando o usuário verificar a tela

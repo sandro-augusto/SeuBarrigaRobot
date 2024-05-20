@@ -37,7 +37,7 @@ Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo par
 
 Ex.:
 ```sh default
-robot -d Results -t "Login com sucesso no saucedemo" features/LoginSaucedemo.robot
+robot -d Results -t "Login com sucesso no Seu Barriga" features/LoginSeuBarriga.robot
 ```
 
 ## EVIDÊNCIAS

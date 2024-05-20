@@ -1,4 +1,4 @@
 *** Variables ***
 ${urlAddContas}              https://seubarriga.wcaquino.me/addConta
-${fieldNome}        id:nome
-${btnSalvar}        css:.btn
+${fieldNomeContas}        id:nome
+${btnSalvarContas}        css:.btn
