@@ -1,13 +1,20 @@
-# AUTOMAÇÃO SEU BARRIGA WEB - ROBOT FRAMEWORK - SELENIUM
+<p align="center">
+  <img src="image.png" alt="Alt Text">
+</p>
+<div align="center">
+
+  <h1>AUTOMAÇÃO SEU BARRIGA WEB - ROBOT FRAMEWORK - SELENIUM</h1>
+</div>
+
 ## PRÉ-REQUISITOS
 Requisitos de software e hardware necessários para executar este projeto de automação
 
 
-* Python 3.11 ou superior
-* Robot Framework 6.1 ou superior
-* Biblioteca setuptools
-* Biblioteca Faker 
-* Vs Code IDE
+* [Python 3.11](https://www.python.org/downloads/ "Python") ou superior
+* [Robot Framework 6.1](https://robotframework.org/robotframework/ "Robot Framework") ou superior
+* Biblioteca [SetupTools](https://pypi.org/project/setuptools/ "SetupTools")
+* Biblioteca [Faker Library](https://pypi.org/project/robotframework-faker/ "Faker Library")
+* [Vs Code](https://code.visualstudio.com/download) IDE
 * Extensions Vs Code
     * Robot Framework Language
     * Python
@@ -33,7 +40,7 @@ robot -d Results ./features/
 
 ## COMANDO PARA EXECUÇÃO DE TESTES COM TAGS
 
-Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo para rodar um cenário com a tag específica
+Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo para rodar um cenário com a tag específica.
 
 Ex.:
 ```sh default
@@ -41,4 +48,4 @@ robot -d Results -t "Login com sucesso no Seu Barriga" features/LoginSeuBarriga.
 ```
 
 ## EVIDÊNCIAS
-Os arquivos com as evidências ficam localizados na pasta Results do projeto, esta pasta só é criada depois da primeira execução. Lá se encontram os Logs. o report html com os status da execução e os prins evidênciando a execução.
+Os arquivos com as evidências ficam localizados na pasta Results do projeto, esta pasta só é criada depois da primeira execução, nesta pasta se encontram os logs, o report html com os status da execução e os prins evidênciando a execução.
