@@ -83,24 +83,6 @@ jobs:
       name: github-pages
       url: https://sandro-augusto.github.io/SeuBarrigaRobot/report.html
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '12'
-
-    - name: Install Dependencies
-      run: |
-        pip install setuptools
-        pip install robotframework==6.1.1
-        pip install robotframework-seleniumlibrary==6.2.0
-        pip install robotframework-faker        
-  
-    - name: Run Robot Framework Tests
-      run: robot -d Results Features/ || true
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
