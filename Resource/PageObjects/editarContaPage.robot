@@ -8,7 +8,7 @@ Quando Editar o campo Nome
     ${FullName}       Catenate                Editar                 ${FakeNome}
     ${urlAtual}       Get Location
     Should Contain    ${urlAtual}             ${urlEditarConta}
-    clear             ${fieldNome}
-    Run Keyword If    '${conta}' != 'Null'    set    ${fieldNome}    ${FullName}
+    clear             ${fieldNomeEditContas}
+    Run Keyword If    '${conta}' != 'Null'    set    ${fieldNomeEditContas}    ${FullName}
     Capture Page Screenshot
-    click             ${btnSalvar}
+    click             ${btnSalvarEditContas}

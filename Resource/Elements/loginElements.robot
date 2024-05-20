@@ -1,7 +1,7 @@
 *** Variables ***
 
-${fieldEmail}        id:email 
-${fieldSenha}        id:senha 
-${btnEntrar}         css:button[type=submit]
-${btnNovoUsuario}    a[href='/cadastro']
-${validaMessage}     css:div[role=alert]
+${fieldEmailLogin}        id:email 
+${fieldSenhaLogin}        id:senha 
+${btnEntrarLogin}         css:button[type=submit]
+${btnNovoUsuarioLogin}    a[href='/cadastro']
+${validaMessageLogin}     css:div[role=alert]
