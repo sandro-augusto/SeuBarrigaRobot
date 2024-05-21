@@ -18,7 +18,10 @@ Então o sistema exibira as contas cadastradas
 E clicar em Editar
     clickIndex                    ${editarConta}         1
 
+E clicar em Limpar
+    clear                          ${fieldNomeEditContas}
+
 
 Quando o usuário clicar em Excluir a Conta desejada
     Capture Page Screenshot
-    clickIndex                    ${excluirConta}         8
+    clickIndex                    ${excluirConta}         30

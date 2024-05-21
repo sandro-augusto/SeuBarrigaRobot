@@ -15,7 +15,6 @@ Dado que o usuário clique em Novo Cadastro
 
 Quando preencher os dados para o cadastro
     [Arguments]    ${nome}    ${email}    ${senha}
-    Fakers
     Run Keyword If    '${nome}' != 'None'     Input Text    ${fieldNomeCad}     ${nome}
     Run Keyword If    '${email}' != 'None'    Input Text    ${fieldEmailCad}    ${email}
     Run Keyword If    '${senha}' != 'None'    Input Text    ${fieldSenhaCad}    ${senha}

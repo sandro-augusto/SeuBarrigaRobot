@@ -6,7 +6,6 @@ Resource    ../Main.robot
 Quando preencher os dados
     [Arguments]    ${tipomov}    ${dataMov}    ${dataPag}
     ...    ${descricao}    ${interessado}    ${valor}    ${situacao}
-    Fakers
     click              ${tiposMov}
     Run Keyword If    '${tipomov}' == 'Receita'        clickIndex    ${tiposMovimento}             0
     Run Keyword If    '${tipomov}' == 'Despesa'        clickIndex    ${tiposMovimento}             1
