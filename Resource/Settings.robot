@@ -4,7 +4,7 @@ Resource    ./Main.robot
 
 *** Keywords ***
 Start Automation
-    Open Browser    ${URL}    ${chrome}
+    Open Browser    ${URL}    ${HeadLess}
     Maximize Browser Window
     Fakers
     # Set Selenium Speed    0.5
