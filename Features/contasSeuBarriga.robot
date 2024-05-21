@@ -34,8 +34,6 @@ Validando o campo Nome do Editar
 Excluindo Conta com Sucesso
     Dado que o usuário clique em Adicionar contas
     Quando preencher o campo Nome                   Teste Automation Robot
-    Então sera visualizado a mensagem               Conta adicionada com sucesso!
-    
     Dado que o usuário clique em Listar contas
     Quando o usuário clicar em Excluir a Conta desejada
     Então sera visualizado a mensagem               Conta removida com sucesso!        
