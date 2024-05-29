@@ -8,7 +8,7 @@ Quando o usuario consultar as movimentações
     Should Be Equal As Strings                    ${urlResumo}         ${url_atual}
     Run Keyword If     '${mes}' == 'setembro'     clickIndex           ${fieldMesResumo}          8
     Run Keyword If     '${ano}' == '2023'         clickIndex           ${fieldAnoResumo}          13
-    Capture Page Screenshot
+    Screenshot
     click                                         ${btnBuscarResumo}
 
 Então o sistema exibira as movimentações pesquisadas

@@ -10,7 +10,7 @@ Então sera visualizado a mensagem
 Quando o usuário verificar a tela
     ${urlAtual}   Get Location
     Should Be Equal As Strings    ${urlListarContas}    ${urlAtual}
-    Capture Page Screenshot
+    Screenshot
 
 Então o sistema exibira as contas cadastradas
     Element Should Be Visible     ${tabelaContas}
@@ -23,5 +23,5 @@ E clicar em Limpar
 
 
 Quando o usuário clicar em Excluir a Conta desejada
-    Capture Page Screenshot
-    clickIndex                    ${excluirConta}         30
+    Screenshot
+    clickIndex                    ${excluirConta}         80

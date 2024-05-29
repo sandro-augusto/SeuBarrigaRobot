@@ -4,13 +4,13 @@ Resource    ./Main.robot
 
 *** Keywords ***
 Start Automation
-    Open Browser    ${URL}    ${HeadLess}
+    Open Browser    ${URL}    ${chrome}
     Maximize Browser Window
     Fakers
     # Set Selenium Speed    0.5
     
 Stop Automation
-    Capture Page Screenshot
+    Screenshot
     Close Browser
 
 Start Automation Login

@@ -18,7 +18,7 @@ Quando preencher os dados
     clickText          ${optionContaMov}                  Automation teste
     Run Keyword If    '${situacao}' == 'Pago'          click         ${statusPagoMov}
     Run Keyword If    '${situacao}' == 'Pendente'      click         ${statusPendenteMov}
-    Capture Page Screenshot
+    Screenshot
     click              ${btnSalvarMov}
 
 Então o sistema exibirar a mensagem 

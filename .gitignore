@@ -178,5 +178,6 @@ log.html
 output.xml
 report.html
 selenium-screenshot-*.png
+Results/
 
 # End of https://www.toptal.com/developers/gitignore/api/robotframework,python

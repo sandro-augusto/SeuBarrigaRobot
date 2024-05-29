@@ -1,6 +1,7 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     FakerLibrary    locale=pt_BR
+Library     AllureLibrary
 
 # Elements
 Resource    Elements/cadastroElements.robot

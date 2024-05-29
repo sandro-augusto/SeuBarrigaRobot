@@ -47,5 +47,17 @@ Ex.:
 robot -d Results -t "Login com sucesso no Seu Barriga" features/LoginSeuBarriga.robot
 ```
 
+
+## COMANDO PARA EXECUÇÃO DE TESTES COM ALLURE
+
+Com o prompt de comando acesse a pasta do projeto e execute o comando abaixo para rodar os testes com o Relatório Allure.
+
+Ex.:
+```sh default
+Remove-Item -Path allure\allure-results\* -Recurse -Force
+robot --listener "allure_robotframework;allure/allure-results"  .\Features\
+allure serve allure/allure-results
+```
+
 ## EVIDÊNCIAS
 Os arquivos com as evidências ficam localizados na pasta Results do projeto, esta pasta só é criada depois da primeira execução, nesta pasta se encontram os logs, o report html com os status da execução e os prins evidênciando a execução.
