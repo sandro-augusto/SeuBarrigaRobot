@@ -73,18 +73,16 @@ jobs:
         uses: actions/download-artifact@v3
         with: 
           name: allure-report
-          path: allure-report/
 
-      - name: Verify Allure Report
+      - name: List Downloaded Artifacts
         run: |
           ls -la allure-report
-          cat allure-report/index.html
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: allure-report
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v1
