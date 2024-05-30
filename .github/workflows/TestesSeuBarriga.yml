@@ -39,6 +39,8 @@ jobs:
         run: |
           mkdir -p allure-results
           robot --listener "allure_robotframework;allure-results" Features/
+          ls -la
+          ls -la allure-results
 
       - name: Generate report
         run: |
