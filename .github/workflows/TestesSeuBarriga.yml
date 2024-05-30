@@ -75,6 +75,11 @@ jobs:
           name: allure-report
           path: allure-report/
 
+      - name: Verify Allure Report
+        run: |
+          ls -la allure-report
+          cat allure-report/index.html
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
