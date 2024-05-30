@@ -28,20 +28,28 @@ jobs:
           pip install allure-robotframework==2.13.5
           pip install allure-pytest
 
+      - name: Install Allure CLI
+        run: |
+          wget https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz
+          tar -zxvf allure-2.13.8.tgz
+          sudo mv allure-2.13.8 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+
       - name: Run Test
         run: |
-          robot --listener "allure_robotframework;allure-results/" Features/
+          mkdir -p allure-results
+          robot --listener "allure_robotframework;allure-results" Features/
 
       - name: Generate report
-        run: allure generate allure-results/ -o allure-report/
+        run: allure generate allure-results -o allure-report --clean
 
       - name: Test Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: robot-framework-report-web
           path: allure-report/
-  
+
   deploy:
     name: Deploy GitHub Pages 🌐
     runs-on: ubuntu-latest
@@ -56,18 +64,18 @@ jobs:
       url: https://sandro-augusto.github.io/SeuBarrigaRobot/report.html
     steps:
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v3
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with: 
           name: robot-framework-report-web
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: allure-report
 
       - name: Deploy to Github Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
