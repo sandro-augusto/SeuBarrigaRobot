@@ -46,11 +46,11 @@ jobs:
           ls -la
           ls -la allure-report
 
-      - name: Test Report
+      - name: Upload Test Report
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: robot-framework-report-web
+          name: allure-report
           path: allure-report/
 
   deploy:
@@ -72,14 +72,14 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with: 
-          name: robot-framework-report-web
+          name: allure-report
+          path: allure-report/
 
-      - name: Upload artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: robot-framework-report-web
-          retention-days: 1
+          path: allure-report
 
-      - name: Deploy to Github Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
