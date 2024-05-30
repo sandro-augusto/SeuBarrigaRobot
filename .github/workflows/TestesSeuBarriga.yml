@@ -41,7 +41,10 @@ jobs:
           robot --listener "allure_robotframework;allure-results" Features/
 
       - name: Generate report
-        run: allure generate allure-results -o allure-report --clean
+        run: |
+          allure generate allure-results -o allure-report --clean
+          ls -la
+          ls -la allure-report
 
       - name: Test Report
         uses: actions/upload-artifact@v3
@@ -74,7 +77,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: allure-report
+          path: robot-framework-report-web
+          retention-days: 1
 
       - name: Deploy to Github Pages
         id: deployment
