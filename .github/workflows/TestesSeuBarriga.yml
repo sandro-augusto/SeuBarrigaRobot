@@ -28,25 +28,13 @@ jobs:
           pip install allure-robotframework==2.13.5
           pip install allure-pytest
 
-      - name: Install Allure CLI
-        run: |
-          wget https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz
-          tar -zxvf allure-2.13.8.tgz
-          sudo mv allure-2.13.8 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-
       - name: Run Test
-        run: |
-          mkdir -p allure-results
+        run: 
           robot --listener "allure_robotframework;allure-results" Features/
-          ls -la
-          ls -la allure-results
 
       - name: Generate report
         run: |
           allure generate allure-results -o allure-report --clean
-          ls -la
-          ls -la allure-report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
@@ -75,10 +63,6 @@ jobs:
         uses: actions/download-artifact@v3
         with: 
           name: allure-report
-
-      - name: List Downloaded Artifacts
-        run: |
-          ls -la allure-report
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
