@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Test
         run: |
-          robot --listener "allure_robotframework;allure/allure-results" .\Features || true
+          robot --listener "allure_robotframework;allure/allure-results" Features/
 
       - name: Test Report
         uses: actions/upload-artifact@v4
