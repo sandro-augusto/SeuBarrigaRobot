@@ -33,7 +33,7 @@ jobs:
           robot --listener "allure_robotframework;allure/allure-results" Features/
 
       - name: Generate report
-        run: allure generate allure-results/ -o allure-results/
+        run: allure generate allure-results/
 
       - name: Test Report
         uses: actions/upload-artifact@v4
