@@ -39,7 +39,7 @@ jobs:
 
       - name: Generate report
         run: |
-          allure generate allure-results -o allure-report
+          allure generate allure-results -o allure-report --clean
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
