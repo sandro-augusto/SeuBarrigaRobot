@@ -30,16 +30,16 @@ jobs:
 
       - name: Clean Allure results
         run: |
-            rm -r allure-report || true
-            rm -r results || true
+              rm -r allure-report || true
+              rm -r output || true
 
       - name: Run Test
         run: |
-          robot -d logs --listener allure_robotframework Features/
+          robot -d logs --listener "allure_robotframework" Features/
 
       - name: Generate report
         run: |
-          allure generate logs/allure-results -o allure-report/ --clean
+          allure generate output/allure -o allure-report --clean
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
@@ -69,14 +69,10 @@ jobs:
         with: 
           name: allure-report
 
-      - name: List Downloaded Artifacts
-        run: |
-          ls -la allure-report
-
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: allure-report
+          path: ./
 
       - name: Deploy to Github Pages
         id: deployment
