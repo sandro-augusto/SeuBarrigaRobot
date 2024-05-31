@@ -46,7 +46,7 @@ jobs:
         if: always()
         with:
           name: allure-report
-          path: allure-report/
+          path: allure/
 
   deploy:
     name: Deploy GitHub Pages 🌐
