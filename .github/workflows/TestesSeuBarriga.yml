@@ -25,27 +25,26 @@ jobs:
           pip install robotframework==6.1.1
           pip install robotframework-seleniumlibrary==6.2.0
           pip install robotframework-faker
-          pip install allure-robotframework
+          pip install allure-robotframework==2.13.5
           pip install allure-pytest
 
       - name: Install Allure CLI
         run: |
-            sudo apt-add-repository ppa:qameta/allure
-            sudo apt-get update
-            sudo apt-get install allure
-
-      - name: Clean Allure results
-        run: |
-              rm -r allure-report || true
-              rm -r output || true
+          wget https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz
+          tar -zxvf allure-2.13.8.tgz
+          sudo mv allure-2.13.8 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: Run Test
         run: |
-          robot -d logs --listener "allure_robotframework" Features/
+          mkdir -p allure-results
+          robot --listener "allure_robotframework;allure-results" Features/
 
       - name: Generate report
         run: |
-          allure generate output/allure -o allure-report --clean
+          allure generate allure-results -o allure-report --clean
+          ls -la
+          ls -la allure-report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
@@ -74,12 +73,18 @@ jobs:
         uses: actions/download-artifact@v3
         with: 
           name: allure-report
+          path: allure-report/
+
+      - name: Verify Allure Report
+        run: |
+          ls -la allure-report
+          cat allure-report/index.html
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: allure-report
 
-      - name: Deploy to Github Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
