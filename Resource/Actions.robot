@@ -47,11 +47,8 @@ set
 clear
     [Arguments]                      ${element}
     waitElement                      ${element}        10s
-    Clear Element Text               ${element}    
+    Clear Element Text               ${element}   
 
 Screenshot
-    Capture Page Screenshot         
-
-# Screenshot
-#     Capture Page Screenshot          allure/allure-results/screenshot.png
-#     Attach File                      allure/allure-results/screenshot.png    screenshot
+     Capture Page Screenshot          allure/allure-results/screenshot.png
+     Attach File                      allure/allure-results/screenshot.png    screenshot
