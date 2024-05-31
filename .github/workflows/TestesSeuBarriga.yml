@@ -25,7 +25,7 @@ jobs:
           pip install robotframework==6.1.1
           pip install robotframework-seleniumlibrary==6.2.0
           pip install robotframework-faker
-          pip install robotframework-allureframework
+          pip install allure-robotframework
           pip install allure-pytest
 
       - name: Clean Allure results
