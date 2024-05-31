@@ -28,13 +28,18 @@ jobs:
           pip install allure-robotframework==2.13.5
           pip install allure-pytest
 
+      - name: Clean Allure results
+        run: |
+            rm -r allure-report || true
+            rm -r results || true
+
       - name: Run Test
         run: 
-          robot --listener "allure_robotframework;allure-results" Features/
+          robot -d results --listener allure_robotframework Features/
 
       - name: Generate report
         run: |
-          allure generate allure-results -o allure-report --clean
+          allure generate allure-results
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
