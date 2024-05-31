@@ -64,7 +64,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://sandro-augusto.github.io/SeuBarrigaRobot/index.html
+      url: https://sandro-augusto.github.io/SeuBarrigaRobot/report.html
     steps:
       - name: Setup Pages
         uses: actions/configure-pages@v3
