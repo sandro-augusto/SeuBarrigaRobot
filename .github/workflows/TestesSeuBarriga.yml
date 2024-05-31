@@ -35,18 +35,18 @@ jobs:
 
       - name: Run Test
         run: |
-          robot --listener "allure_robotframework;allure-results" Features/
+          robot -d logs --listener "allure_robotframework;allure-results" Features/
 
       - name: Generate report
         run: |
-          allure generate allure-results -o allure-report --clean
+          allure generate allure/allure-results -o allure/allure-report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: allure-report
-          path: allure/
+          path: allure/allure-report
 
   deploy:
     name: Deploy GitHub Pages 🌐
