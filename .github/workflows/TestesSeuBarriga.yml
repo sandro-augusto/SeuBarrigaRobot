@@ -39,7 +39,7 @@ jobs:
 
       - name: Generate report
         run: |
-          allure generate allure-results -o allure-report --clean
+          allure generate allure-results -o allure-report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
@@ -72,7 +72,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: allure-report/
+          path: ./
 
       - name: Deploy to Github Pages
         id: deployment
