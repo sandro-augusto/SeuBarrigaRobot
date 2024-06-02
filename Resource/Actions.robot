@@ -50,5 +50,5 @@ clear
     Clear Element Text               ${element}   
 
 Screenshot
-     Capture Page Screenshot          output/allure-results/screenshot.png
-     Attach File                      output/allure-results/screenshot.png    screenshot
+    Capture Page Screenshot          ${OUTPUT_DIR}/screenshot.png
+    Attach File                      ${OUTPUT_DIR}/screenshot.png
