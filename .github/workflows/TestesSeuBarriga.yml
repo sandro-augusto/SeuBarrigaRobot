@@ -39,7 +39,9 @@ jobs:
         run: rm -rf output/
 
       - name: Run Test
-        run: robot -d logs --listener "allure_robotframework;output/allure-results" Features/ || true
+        run: |
+              mkdir -p output/allure-results/
+              robot -d logs --listener "allure_robotframework;output/allure-results" Features/ || true
 
       - name: Generate report
         run: allure generate output/allure-results -o allure-report --clean
