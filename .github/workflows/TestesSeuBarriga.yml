@@ -34,17 +34,15 @@ jobs:
           tar -zxvf allure-2.13.8.tgz
           sudo mv allure-2.13.8 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          
+      - name: Clean output allure
+        run: rm -rf output/
 
       - name: Run Test
-        run: |
-          mkdir -p allure-results
-          robot --listener "allure_robotframework;allure-results" Features/
+        run: robot -d logs --listener "allure_robotframework;output/allure-results" Features/ || true
 
       - name: Generate report
-        run: |
-          allure generate allure-results -o allure-report --clean
-          ls -la
-          ls -la allure-report
+        run: allure generate output/allure-results -o allure-report --clean
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
