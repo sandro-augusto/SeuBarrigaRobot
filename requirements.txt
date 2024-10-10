@@ -2,3 +2,5 @@ robotframework==6.1.1
 robotframework-faker==5.0.0 
 allure-robotframework==2.13.5
 selenium==4.9.0
+setuptools
+allure-pytest
