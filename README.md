@@ -29,6 +29,10 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | Results             | Local onde são criadas as evidências e relatórios do projeto                                        |
 | Elements            | Local onde deverão ser incluidos os elementos usados na Page        |
 
+## INSTALANDO O ROBOT E BIBLIOTECAS
+```sh default
+pip install -r requirements.txt
+```
 
 ## COMANDO PARA EXECUTAR OS TESTES
 
